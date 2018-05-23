@@ -3,11 +3,11 @@ from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import path , include
-
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('chats', views.chat_view, name='chats'),
+    path('chat', views.chat_view, name='chats'),
     path('chat/<int:sender>/<int:receiver>', views.message_view, name='chat'),
     path('api/messages/<int:sender>/<int:receiver>', views.message_list, name='message-detail'),
     path('api/messages', views.message_list, name='message-list'),

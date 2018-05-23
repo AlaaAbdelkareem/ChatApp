@@ -16,10 +16,7 @@ def index(request):
     if request.method == "POST":
         username, password = request.POST['username'], request.POST['password']
         user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-        else:
-            return HttpResponse('{"error": "User does not exist"}')
+        login(request, user)
         return redirect('chats')
 
 
